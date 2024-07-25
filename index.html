@@ -37,6 +37,9 @@
   <link rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/code.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+
 
     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -45,165 +48,17 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+  <script src="static/js/copy-button.js"></script>
   <textarea id="hidden-textarea" style="position: absolute; left: -9999px;" aria-hidden="true"></textarea>
 
-  <style>
-    .code-container {
-      position: relative;
-      background-color: #363636;
-      border-radius: 6px;
-      padding: 1rem 2.5rem 0rem 1rem;
-      margin-top: 1rem;
-      border: 1px solid #30363d;
-      overflow-x: auto;
-      overflow-y: hidden;
-    }
-    .code-container pre {
-      margin: 0;
-      padding: 0;
-      background-color: transparent;
-      white-space: pre;
-      word-wrap: normal;
-    }
-    .code-content {
-      font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-      font-size: 0.85em;
-      line-height: 1.45;
-      color: #ffffff;
-      display: inline-block;
-    }
-    .copy-button {
-      position: absolute;
-      top: 0.5rem;
-      right: 0.5rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0.25rem;
-      width: 32px;
-      height: 32px;
-      transition: background-color 0.2s;
-      border-radius: 4px;
-    }
-    .copy-button:hover {
-      background-color: #282c34;
-    }
-    .copy-icon, .checkmark-icon {
-      width: 16px;
-      height: 16px;
-      transition: all 0.2s ease-in-out;
-      position: absolute;
-      top: 8px;
-      left: 8px;
-    }
-    .copy-icon {
-      fill: #8b949e;
-    }
-    .copy-button:hover .copy-icon {
-      fill: #c9d1d9;
-    }
-    .checkmark-icon {
-      fill: #3fb950;
-      transform: scale(0);
-      opacity: 0;
-    }
-    .copy-button.copied .copy-icon {
-      transform: scale(0);
-      opacity: 0;
-    }
-    .copy-button.copied .checkmark-icon {
-      transform: scale(1);
-      opacity: 1;
-    }
-    .copy-tooltip {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      padding: 0.5rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      opacity: 0;
-      transition: opacity 0.2s;
-      pointer-events: none;
-      border: 1px solid #30363d;
-    }
-    .copy-button:hover + .copy-tooltip {
-      opacity: 1;
-    }
-
-/* Button styles */
-.button.is-dark {
-  background-color: #363636;
-  color: #fff;
-  border-color: #363636;
-  transition: all 0.3s ease;
-}
-
-.button.is-dark:hover {
-  background-color: #fff;
-  color: #363636;
-  border-color: #363636;
-}
-
-.button.is-dark .icon i {
-  color: #fff;
-}
-
-.button.is-dark:hover .icon i {
-  color: #363636;
-}
-  </style>
-  
-  <script>
-  // JavaScript remains unchanged
-  document.addEventListener('DOMContentLoaded', function() {
-    const codeContainers = document.querySelectorAll('.code-container');
-    
-    codeContainers.forEach(container => {
-      const copyButton = container.querySelector('.copy-button');
-      const codeContent = container.querySelector('.code-content');
-      const copyTooltip = container.querySelector('.copy-tooltip');
-  
-      copyButton.addEventListener('click', function() {
-        const textArea = document.createElement('textarea');
-        textArea.value = codeContent.textContent.trim();
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-  
-        copyButton.classList.add('copied');
-        copyTooltip.textContent = 'Copied!';
-        
-        setTimeout(() => {
-          copyButton.classList.remove('copied');
-          copyTooltip.textContent = 'Copy to clipboard';
-        }, 2000);
-      });
-    });
-  });
-  </script>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
-
-<!-- The loading of KaTeX is deferred to speed up page rendering -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
-
-<!-- To automatically render math in text elements, include the auto-render extension: -->
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
 
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
-<script>hljs.highlightAll();</script> -->
-
 </head>
-<body>
 
-  
+<body>
 
   <section class="hero">
     <div class="hero-body">
@@ -281,56 +136,6 @@
 </section>
 
 
-
-
-<!--BibTex citation -->
-<section class="section" id="Code">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <div class="code-container">
-      <pre><code class="code-content language-python">@inproceedings{berto2024routefinder332432,
-    title={{RouteFinder}: Towards Foundation Models for Vehicle Routing Problems},
-    author={Berto, Federico ... Park, Jinkyoo},
-    booktitle={ICML 2024 Workshop on Foundation Models in the Wild (Oral)},
-    year={2024},
-    url={https://openreview.net/forum?id=hCiaiZ6e4G},
-    note={\url{https://github.com/ai4co/routefinder}}
-}</code></pre>
-      <button class="copy-button" aria-label="Copy to clipboard">
-        <svg class="copy-icon" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
-        </svg>
-        <svg class="checkmark-icon" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
-        </svg>
-      </button>
-      <div class="copy-tooltip">Copy to clipboard</div>
-    </div>
-  </div>
-</section>
-<!--End BibTex citation -->
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <h2 class="subtitle has-text-centered">
-        Example inline math \( \int_0^1 x dx \) and block math:
-        \[
-        \hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} dx
-        \]
-      </h2>
-    </div>
-  </div>
-</section>
-
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSxPBfuH2Ydrc3Y1y7YTjGar-IQ-RG6HoTHbQs3sAboDD5tp-aL66-AESeK35P7JmvKJx9GEAgHIvsu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-</div>
-</div>
-</section>
-
 <!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
@@ -406,6 +211,16 @@
 <!-- End image carousel -->
 
 
+<!-- Embedded Google Slides -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Google Slides</h2>
+    <div class="hero-body">
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSxPBfuH2Ydrc3Y1y7YTjGar-IQ-RG6HoTHbQs3sAboDD5tp-aL66-AESeK35P7JmvKJx9GEAgHIvsu/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+</div>
+</div>
+</section>
+<!-- End embedded Google Slides -->
 
 
 <!-- Youtube video -->
@@ -428,6 +243,21 @@
 </section>
 <!-- End youtube video -->
 
+<!-- Math -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Math</h2>
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        Example inline math \( \int_0^1 x dx \) and block math:
+        \[
+        \hat{f}(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x \xi} dx
+        \]
+      </h2>
+    </div>
+  </div>
+</section>
+<!-- End math -->
 
 <!-- Video carousel -->
 <section class="hero is-small">
@@ -481,6 +311,30 @@
   </section>
 <!--End paper poster -->
 
+
+<section class="section" id="Code">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="code-container">
+      <pre><code class="code-content language-python">@inproceedings{ai4co2024researchwebsitetemplate,
+    title={AI4CO Research Website Template},
+    author={AI4CO},
+    booktitle={Github}},
+    year={2024},
+    url={https://github.com/ai4co},
+}</code></pre>
+      <button class="copy-button" aria-label="Copy to clipboard">
+        <svg class="copy-icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"></path><path fill-rule="evenodd" d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"></path>
+        </svg>
+        <svg class="checkmark-icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"></path>
+        </svg>
+      </button>
+      <div class="copy-tooltip">Copy to clipboard</div>
+    </div>
+  </div>
+</section>
     
 </section>
 <!--End BibTex citation -->

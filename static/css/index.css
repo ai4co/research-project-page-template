@@ -134,4 +134,26 @@ body {
 }
 
 
+/* Button styles */
+.button.is-dark {
+  background-color: #363636;
+  color: #fff;
+  border-color: #363636;
+  transition: all 0.3s ease;
+}
+
+.button.is-dark:hover {
+  background-color: #fff;
+  color: #363636;
+  border-color: #363636;
+}
+
+.button.is-dark .icon i {
+  color: #fff;
+}
+
+.button.is-dark:hover .icon i {
+  color: #363636;
+}
+
 
