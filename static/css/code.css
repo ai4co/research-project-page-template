@@ -1,10 +1,10 @@
 .code-container {
     position: relative;
-    background-color: #363636;
+    background-color: #f3f3f3;
     border-radius: 6px;
     padding: 1rem 2.5rem 0rem 1rem;
     margin-top: 1rem;
-    border: 1px solid #30363d;
+    border: 1px solid #f3f3f3;
     overflow-x: auto;
     overflow-y: hidden;
   }
